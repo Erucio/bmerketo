@@ -1,0 +1,6 @@
+﻿@{
+    ViewData["Title"] = User.FindFirst("DisplayName")?.Value;
+}
+<div class="container mt-5">
+    <h1>@ViewData["Title"]</h1>
+</div>

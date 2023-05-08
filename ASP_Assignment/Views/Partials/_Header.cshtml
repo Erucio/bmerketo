@@ -1,4 +1,4 @@
-﻿<header>
+﻿<header >
     <div class="container">
         <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
         <nav id="menu" class="menu-links">
@@ -8,9 +8,30 @@
         </nav>
         <nav class="menu-icons">
             <a asp-controller="Search" asp-action="Index" class="link"><i class="fa-regular fa-search"></i></a>
-            <a asp-controller="Login" asp-action="Index" class="link">Login</a>
-            <a asp-controller="Register" asp-action="Index" class="link">Register</a>
             <a asp-controller="Cart" asp-action="Index" class="link"><i class="fa-solid fa-cart-shopping"></i></a>
+
+            @if (signInManager.IsSignedIn(User))
+            {
+                var user = await userManager.GetUserAsync(User);
+
+                if (await userManager.IsInRoleAsync(user, "admin"))
+                {
+                    <a asp-controller="admin" asp-action="Index" class="link">Admin</a>
+                }
+                else
+                {
+                    <a asp-controller="account" asp-action="Index" class="link">@User.FindFirst("FirstName")?.Value</a>
+
+                }
+
+                <a asp-controller="logout" asp-action="Index" class="link">Logout</a>
+            }
+            else
+            {
+                <a asp-controller="Login" asp-action="Index" class="link">Login</a>
+                <a asp-controller="Register" asp-action="Index" class="link">Register</a>
+            }
+
         </nav>
         <div class="toggle">
             <button class="btn-toggle btn-outline-white" data-option="toggle" data-target="#menu">

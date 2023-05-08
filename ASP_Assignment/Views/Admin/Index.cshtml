@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container">
+     <h2>@ViewData["Title"]</h2>
+
+    <div class="menu">
+        <ul>
+            <li>
+                <a asp-action="Index" asp-controller="UserManagement">Manage Users</a>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="Product">Product CRUD</a>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="Comment">Read Comments</a>
+            </li>
+            <li>
+                <a asp-action="Index" asp-controller="Tag">Tag Manager</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .menu {
+        display: flex;
+        justify-content: center;
+    }
+
+    .menu ul {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+    }
+
+    .menu li {
+        text-align: center;
+        margin: 20px;
+    }
+
+    .menu a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        padding: 8px 25px;
+        background-color: lightgray;
+        border-radius: 5px;
+    }
+    h2{
+        margin: 20px;
+        text-align: center;
+    }
+    .menu a:hover{
+        background-color: darkgray;
+    }
+</style>

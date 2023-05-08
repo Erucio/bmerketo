@@ -27,41 +27,43 @@
         column-gap: 30px;
         row-gap: 30px;
         grid-template-columns: 1fr;
-        grid-template-areas:"email" "rememberme" "button";
+        grid-template-areas: "message" "email" "password" "rememberme" "button";
 
-        @include lg {
-            grid-template-columns: 1fr 1fr;
-            grid-template-areas: "name email" "phoneNumber companyName" "message message" "terms terms" "button button";
-        }
 
-        .name {
-            grid-area: name;
-        }
-
-        .email {
-            grid-area: email;
-        }
-
-        .phoneNumber {
-            grid-area: phoneNumber;
-        }
-
-        .companyName {
-            grid-area: companyName;
-        }
-
-        .terms {
-            grid-area: terms;
+        .validation-summary-errors {
+            grid-area: message;
             margin: 10px 0;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                color: $color-theme-1;
+            }
         }
 
         .message {
             grid-area: message;
+            margin: 10px 0;
         }
 
-        textarea {
-            height: 100px;
-            resize: none;
+        .email {
+            grid-area: email;
+            a {
+                text-decoration: none;
+                color: $color-dark-1;
+                margin: 0 1em;
+            }
+        }
+
+        .password {
+            grid-area: password;
+        }
+
+        .rememberme {
+            grid-area: rememberme;
+            margin: 10px 0;
         }
 
         button {

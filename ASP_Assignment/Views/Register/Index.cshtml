@@ -62,18 +62,20 @@
                 <input asp-for="ConfirmPassword" />
                 <span asp-validation-for="ConfirmPassword" class="error"></span>
             </div>
-            <div class="imagefile form-group">
+            <div class="profileimage form-group">
                 <label asp-for="ImageFile"></label>
                 <input asp-for="ImageFile" />
                 <span asp-validation-for="ImageFile" class="error"></span>
             </div>
 
-            <div class="rememberme form-checkbox-group">
+            <div class="terms form-checkbox-group">
                 <label class="custom-checkbox">
                     <label asp-for="TermsAndConditions"></label>
                     <input asp-for="TermsAndConditions" />
                     <span class="checkmark"></span>
                 </label>
+                <span asp-validation-for="TermsAndConditions" class="error"></span>
+
             </div>
             <button class="btn-theme">REGISTER</button>
         </form>

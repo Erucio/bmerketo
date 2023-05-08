@@ -3,12 +3,11 @@
 @{
     ViewData["Title"] = "Login to your Account";
 }
-
 <section class="login-form">
     <div class="container">
         <div class="title">@ViewData["Title"]</div>
 
-        <form method="post" novalidate>
+        <form method="post" novalidate asp-route-ReturnUrl="@Model.ReturnUrl">
 
             <div asp-validation-summary="ModelOnly" class="form-group error"></div>
 
@@ -20,7 +19,7 @@
                 <span asp-validation-for="Email" class="error"></span>
             </div>
             <div class="password form-group">
-                <label asp-for="Password"></label>
+                <label asp-for="Password">Password*</label>
                 <input asp-for="Password" />
                 <span asp-validation-for="Password" class="error"></span>
             </div>

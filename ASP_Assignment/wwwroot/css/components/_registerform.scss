@@ -27,27 +27,55 @@
         column-gap: 30px;
         row-gap: 30px;
         grid-template-columns: 1fr;
-        grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "companyName" "email" "phoneNumber" "imagefile" "password" "confirmpassword" "terms" "button";
+        grid-template-areas: "firstname" "lastname" "streetname" "postalcode" "city" "phonenumber" "companyname" "email" "password" "confirmpassword" "profileimage" "terms" "button";
 
         @include lg {
             grid-template-columns: 1fr 1fr;
-            grid-template-areas: "name email" "phoneNumber companyName" "message message" "terms terms" "button button";
+            grid-template-areas: "firstname lastname" "streetname streetname" "postalcode city" "phonenumber companyname" "email email" "password password" "confirmpassword confirmpassword" "profileimage profileimage" "terms terms" "button button";
         }
 
-        .name {
-            grid-area: name;
+        .firstname {
+            grid-area: firstname;
+        }
+
+        .lastname {
+            grid-area: lastname;
+        }
+
+        .streetname {
+            grid-area: streetname;
+        }
+
+        .postalcode {
+            grid-area: postalcode;
+        }
+
+        .city {
+            grid-area: city;
+        }
+
+        .companyname {
+            grid-area: companyname;
+        }
+
+        .phonenumber {
+            grid-area: phonenumber;
         }
 
         .email {
             grid-area: email;
         }
 
-        .phoneNumber {
-            grid-area: phoneNumber;
+        .password {
+            grid-area: password;
         }
 
-        .companyName {
-            grid-area: companyName;
+        .confirmpassword {
+            grid-area: confirmpassword;
+        }
+
+        .profileimage {
+            grid-area: profileimage;
         }
 
         .terms {
@@ -57,11 +85,6 @@
 
         .message {
             grid-area: message;
-        }
-
-        textarea {
-            height: 100px;
-            resize: none;
         }
 
         button {

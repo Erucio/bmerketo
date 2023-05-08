@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using ASP_Assignment.Models.Entities;
+using ASP_Assignment.Models.Identity;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP_Assignment.Models.ViewModels
 {
@@ -39,10 +41,11 @@ namespace ASP_Assignment.Models.ViewModels
         [Display(Name = "Password")]
         [DataType(DataType.Password)]
         [Required(ErrorMessage = "You must enter a password...")]
-        [RegularExpression(@"^(?=.*[A-Z])(?=.*\d).{7,}$", ErrorMessage = "Your password has to contain at least 7 characters, one capital letter and a number...")]
+        [RegularExpression(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9)(?=.*[a-zA-Z0-9]).{7,}$", ErrorMessage = "Your password has to contain at least 7 characters, one capital letter, a number and a special character...")]
         public string Password { get; set; } = null!;
 
         [Display(Name = "Confirm Password")]
+        [DataType(DataType.Password)]
         [Required(ErrorMessage = "You must confirm your password...")]
         public string ConfirmPassword { get; set; } = null!;
 
@@ -54,5 +57,31 @@ namespace ASP_Assignment.Models.ViewModels
         [Required(ErrorMessage = "You must accept the terms and conditions to continue...")]
         public bool TermsAndConditions { get; set; } = false;
 
+
+
+        public static implicit operator AppUser(UserRegisterViewModel viewModel)
+        {
+            return new AppUser
+            {
+                UserName = viewModel.Email,
+                FirstName = viewModel.FirstName,
+                LastName = viewModel.LastName,
+                Email = viewModel.Email,
+                PhoneNumber = viewModel.PhoneNumber,
+                CompanyName = viewModel.CompanyName
+            };
+
+            
+        }
+        
+        public static implicit operator AddressEntity(UserRegisterViewModel viewModel)
+        {
+            return new AddressEntity
+            {
+                StreetName = viewModel.StreetName,
+                PostalCode = viewModel.PostalCode,
+                City = viewModel.City
+            };
+        }
     }
 }
