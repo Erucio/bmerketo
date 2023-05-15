@@ -1,0 +1,54 @@
+﻿@model ProductRegistrationViewModel
+@{
+    ViewData["Title"] = "Product Registration";
+}
+
+<div class="bg-body-tertiary d-flex justify-content-center mt-5">
+
+        <form method="post" enctype="multipart/form-data" novalidate asp-action="Add" class="col-10 col-lg-6">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="ArticleNumber" class="form-label">Article Number</label>
+                <input asp-for="ArticleNumber" class="form-control"/>
+                <span asp-validation-for="ArticleNumber" class="small text-danger"></span>
+            </div>
+            <div class="mb-5">
+                <label asp-for="Name" class="form-label">Product Name</label>
+                <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="small text-danger"></span>
+            </div>
+
+            <div class="mb-5">
+                <label asp-for="Price" class="form-label">Product Price(Optional)</label>
+                <input asp-for="Price" class="form-control" type="number" />
+            <span asp-validation-for="Price" class="small text-danger"></span>
+            </div>
+            <div class="mb-5">
+                <label asp-for="Description" class="form-label">Product Description (Optional)</label>
+                <textarea asp-for="Description" class="form-control"></textarea>
+            <span asp-validation-for="Description" class="small text-danger"></span>
+            </div>
+
+            <div class="mb-5">
+                @foreach (SelectListItem tag in ViewBag.Tags)
+                {
+                    <div class="form-check form-check-inline mb-2 ">
+                    <input type="checkbox" name="Tags" id="tag-@tag.Text-@tag.Value" value="@tag.Value" checked="@tag.Selected" id="@tag.Value" class="form-check-input" />
+                    <label for="tag-@tag.Text-@tag.Value" class="small form-check-label mr-2">@tag.Text</label>
+                    </div>
+                }
+            </div>
+
+            <div class="mb-5">
+                <label asp-for="Image" class="form-label">Product Image (Optional)</label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="small text-danger"></span>
+            </div>
+            <div class="collection-grid pt-4 mb-5">
+                <button class="btn-secondary py-2">SUBMIT</button>
+            </div>
+        </form>
+
+</div>

@@ -65,6 +65,10 @@
       "PackagePath": "staticwebassets\\css\\components\\_showcase.scss"
     },
     {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\css\\components\\_tagform.scss",
+      "PackagePath": "staticwebassets\\css\\components\\_tagform.scss"
+    },
+    {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\css\\components\\_topselling.scss",
       "PackagePath": "staticwebassets\\css\\components\\_topselling.scss"
     },
@@ -139,6 +143,22 @@
     {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\placeholders\\625x647.svg",
       "PackagePath": "staticwebassets\\images\\placeholders\\625x647.svg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\13412_BALLAMA.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\13412_BALLAMA.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_BORINGU 2.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_BORINGU 2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_BORINGU.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_BORINGU.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg"
     },
     {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\js\\site.js",

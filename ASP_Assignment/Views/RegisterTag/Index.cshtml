@@ -1,0 +1,23 @@
+﻿@model TagRegisterViewModel
+@{
+    ViewData["Title"] = "Register a new Tag";
+}
+
+<section class="tag-form">
+    <div class="container">
+        <div class="title">@ViewData["Title"]</div>
+
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
+
+            <div class="tagname form-group">
+                <label asp-for="TagName"></label>
+                <input asp-for="TagName" />
+                <span asp-validation-for="TagName" class="error"></span>
+            </div>
+
+            <button class="btn-theme">CREATE</button>
+        </form>
+    </div>
+</section>

@@ -47,6 +47,44 @@ namespace ASP_Assignment.Migrations
                     b.ToTable("AspNewAddresses");
                 });
 
+            modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductEntity", b =>
+                {
+                    b.Property<string>("ArticleNumber")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal?>("Price")
+                        .HasColumnType("money");
+
+                    b.HasKey("ArticleNumber");
+
+                    b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductTagEntity", b =>
+                {
+                    b.Property<string>("ArticleNumber")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("TagId")
+                        .HasColumnType("int");
+
+                    b.HasKey("ArticleNumber", "TagId");
+
+                    b.HasIndex("TagId");
+
+                    b.ToTable("ProductTagEntity");
+                });
+
             modelBuilder.Entity("ASP_Assignment.Models.Entities.UserAddressEntity", b =>
                 {
                     b.Property<string>("UserId")
@@ -139,24 +177,6 @@ namespace ASP_Assignment.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "23ac1db3-0055-44c3-bc8b-06829b548b45",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "ca42f50c-d4f2-440f-9239-949ec0052eb1",
-                            Email = "administrator@domain.com",
-                            EmailConfirmed = false,
-                            FirstName = "",
-                            LastName = "",
-                            LockoutEnabled = false,
-                            PasswordHash = "AQAAAAIAAYagAAAAEJg7wPuvJFE/kcmAXHPe1jtIDgzGWy0gIN77q+7+szL/+SUL1z4jBDXuQUDNA/6Scg==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "fff2626d-0f26-4cea-9a22-3c4803bd1866",
-                            TwoFactorEnabled = false,
-                            UserName = "administrator@domain.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -184,14 +204,6 @@ namespace ASP_Assignment.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "330f2597-9486-4240-831a-7c4737768f2c",
-                            Name = "System Administrator",
-                            NormalizedName = "SYSTEM ADMINISTRATOR"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -279,13 +291,6 @@ namespace ASP_Assignment.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "23ac1db3-0055-44c3-bc8b-06829b548b45",
-                            RoleId = "330f2597-9486-4240-831a-7c4737768f2c"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -305,6 +310,42 @@ namespace ASP_Assignment.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("TagEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("TagName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Tags");
+                });
+
+            modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductTagEntity", b =>
+                {
+                    b.HasOne("ASP_Assignment.Models.Entities.ProductEntity", "Product")
+                        .WithMany("ProductTags")
+                        .HasForeignKey("ArticleNumber")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TagEntity", "Tag")
+                        .WithMany("ProductTags")
+                        .HasForeignKey("TagId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Tag");
                 });
 
             modelBuilder.Entity("ASP_Assignment.Models.Entities.UserAddressEntity", b =>
@@ -382,9 +423,19 @@ namespace ASP_Assignment.Migrations
                     b.Navigation("Users");
                 });
 
+            modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductEntity", b =>
+                {
+                    b.Navigation("ProductTags");
+                });
+
             modelBuilder.Entity("ASP_Assignment.Models.Identity.AppUser", b =>
                 {
                     b.Navigation("Addresses");
+                });
+
+            modelBuilder.Entity("TagEntity", b =>
+                {
+                    b.Navigation("ProductTags");
                 });
 #pragma warning restore 612, 618
         }

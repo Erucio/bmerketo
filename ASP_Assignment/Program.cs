@@ -9,13 +9,23 @@ using Microsoft.EntityFrameworkCore;
 
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+// Contexts.
 builder.Services.AddDbContext<IdentityContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("ASP_Assignment_DB")));
+
+// Repositories.
+builder.Services.AddScoped<ProductTagRepository>();
+builder.Services.AddScoped<TagRepository>();
 builder.Services.AddScoped<AddressRepository>();
+builder.Services.AddScoped<ProductRepository>();
 builder.Services.AddScoped<UserAddressRepository>();
+
+// Add services to the container.
+
+builder.Services.AddScoped<TagService>();
+builder.Services.AddScoped<ProductService>();
 builder.Services.AddScoped<AddressService>();
 builder.Services.AddScoped<AuthService>();
 
