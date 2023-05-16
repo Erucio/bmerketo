@@ -145,8 +145,16 @@
       "PackagePath": "staticwebassets\\images\\placeholders\\625x647.svg"
     },
     {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\placeholders\\placeholder.png",
+      "PackagePath": "staticwebassets\\images\\placeholders\\placeholder.png"
+    },
+    {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\13412_BALLAMA.jpg",
       "PackagePath": "staticwebassets\\images\\products\\13412_BALLAMA.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_17.webp",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_17.webp"
     },
     {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_BORINGU 2.jpg",
@@ -159,6 +167,26 @@
     {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg",
       "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_fd347755a44a8d894532331bc8876e76.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_fd347755a44a8d894532331bc8876e76.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_gadgetconcept.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_gadgetconcept.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_image_1547cff8-90b1-430d-af30-5b8f912c790d_1000x1000.webp",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_image_1547cff8-90b1-430d-af30-5b8f912c790d_1000x1000.webp"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_networked-kitchen-recipe1.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_networked-kitchen-recipe1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_star-wars-stormtrooper-premium-electronic-helmet.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_star-wars-stormtrooper-premium-electronic-helmet.jpg"
     },
     {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\js\\site.js",

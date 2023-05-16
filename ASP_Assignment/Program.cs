@@ -55,9 +55,14 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
+app.UseStatusCodePagesWithReExecute("/NotFound/Index");
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "productDetails",
+    pattern: "products/{articleNumber}",
+    defaults: new { controller = "Products", action = "Details" });
 
 
 app.Run();

@@ -1,4 +1,6 @@
-﻿using ASP_Assignment.Helpers.Services;
+﻿using ASP_Assignment.Helpers.Repositories;
+using ASP_Assignment.Helpers.Services;
+using ASP_Assignment.Models.Identity;
 using ASP_Assignment.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,9 +34,9 @@ namespace ASP_Assignment.Controllers
 
             return View(viewModel);
         }
-            
 
 
+        #region Create Product Page
         public async Task<IActionResult> Add()
         {
             ViewBag.Tags = await _tagService.GetTagsAsync();
@@ -64,6 +66,28 @@ namespace ASP_Assignment.Controllers
                 ModelState.AddModelError("", "Something Went Wrong.");
             }
             ViewBag.Tags = await _tagService.GetTagsAsync(tags);
+            return View(viewModel);
+        }
+        #endregion
+
+        public async Task<IActionResult> Details(string articleNumber)
+        {
+            var product = await _productService.GetByArticleNumberAsync(articleNumber);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            var viewModel = new ProductDetailViewModel
+            {
+                ArticleNumber = product.ArticleNumber,
+                Name = product.Name,
+                Price = product.Price,
+                Description = product.Description,
+                ImageUrl = product.ImageUrl
+            };
+
             return View(viewModel);
         }
     }

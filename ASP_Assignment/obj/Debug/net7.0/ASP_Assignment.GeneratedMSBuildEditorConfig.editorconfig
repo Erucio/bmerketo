@@ -24,8 +24,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Contacts/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdHNcSW5kZXguY3NodG1s
+[C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Contact/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29udGFjdFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Denied/Index.cshtml]
@@ -38,6 +38,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/NotFound/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTm90Rm91bmRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Partials/Forms/_ContactForm.cshtml]
@@ -82,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Products/Add.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcQWRkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/erick/OneDrive/Skrivbord/ASP_Assignment/ASP_Assignment/Views/Products/Index.cshtml]

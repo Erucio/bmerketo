@@ -5,20 +5,30 @@
 }
 
 <div class="container mt-5">
-    @foreach(var product in Model.Products)
+    @foreach (var product in Model.Products)
     {
         <div class="card mb-3">
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center">
-                    <img src="images/products/@product.ImageUrl" alt="@product.Name" height="150" width="150"/>
+                    @if (string.IsNullOrEmpty(product.ImageUrl))
+                    {
+                        <img src="~/images/placeholders/placeholder.png" alt="Placeholder Image" height="150" width="150" />
+                    }
+                    else
+                    {
+                        <img src="~/images/products/@product.ImageUrl" alt="@product.Name" height="150" width="150" />
+                    }
                     <div class="ms-2">
-                        <div>@product.ArticleNumber</div>
+                        <div class="small">@product.ArticleNumber</div>
                         <div>@product.Name</div>
+                        <div>@(product.Price.HasValue ? product.Price.Value.ToString("0.00") + " $" : "N/A")</div>
+                        <div class="mt-4">
+                            <a href="/products/@product.ArticleNumber" class="btn btn-primary me-2">Details</a>
+                            <button class="btn btn-success">Add to Cart</button>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     }
-
 </div>

@@ -13,7 +13,7 @@ namespace ASP_Assignment.Models.Contexts
         {
 
         }
-
+        public DbSet<ProductTagEntity> ProductTags { get; set; }
         public DbSet<TagEntity> Tags { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<AddressEntity> AspNewAddresses { get; set; }

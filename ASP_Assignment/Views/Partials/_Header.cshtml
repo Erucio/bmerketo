@@ -3,12 +3,12 @@
         <div class="logo"><img src="images/logo.svg" alt="">bmerketo</div>
         <nav id="menu" class="menu-links">
             <a asp-controller="Home" asp-action="Index" class="link">HOME</a>
-            <a asp-controller="Products" asp-action="Index" class="link">PRODUCTS</a>
-            <a asp-controller="Contacts" asp-action="Index" class="link">CONTACT</a>
+            <a asp-controller="products" asp-action="Index" class="link">PRODUCTS</a>
+            <a asp-controller="contact" asp-action="Index" class="link">CONTACT</a>
         </nav>
         <nav class="menu-icons">
-            <a asp-controller="Search" asp-action="Index" class="link"><i class="fa-regular fa-search"></i></a>
-            <a asp-controller="Cart" asp-action="Index" class="link"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a asp-controller="search" asp-action="Index" class="link"><i class="fa-regular fa-search"></i></a>
+            <a asp-controller="cart" asp-action="Index" class="link"><i class="fa-solid fa-cart-shopping"></i></a>
 
             @if (signInManager.IsSignedIn(User))
             {

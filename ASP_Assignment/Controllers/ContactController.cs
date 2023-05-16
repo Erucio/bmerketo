@@ -2,7 +2,7 @@
 
 namespace ASP_Assignment.Controllers;
 
-public class ContactsController : Controller
+public class ContactController : Controller
 {
     public IActionResult Index()
     {

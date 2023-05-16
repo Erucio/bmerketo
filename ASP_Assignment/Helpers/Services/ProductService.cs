@@ -1,6 +1,7 @@
 ﻿using ASP_Assignment.Helpers.Repositories;
 using ASP_Assignment.Models.Entities;
 using ASP_Assignment.Models.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Assignment.Helpers.Services
 {
@@ -68,6 +69,9 @@ namespace ASP_Assignment.Helpers.Services
 
         }
 
-
+        public async Task<Product> GetByArticleNumberAsync(string articleNumber)
+        {
+            return await _productRepo.GetAsync(x => x.ArticleNumber == articleNumber);
+        }
     }
 }
