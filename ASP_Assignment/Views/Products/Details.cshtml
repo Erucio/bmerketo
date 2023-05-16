@@ -1,8 +1,16 @@
-﻿@model ProductDetailViewModel
+﻿
+@model ProductDetailViewModel
 
 @{
     ViewData["title"] = Model.ArticleNumber;
 }
+
+
+<style>
+    .description-placeholder {
+        min-height: 200px; /* Adjust the height as needed */
+    }
+</style>
 
 <div class="container mt-5">
     <div class="card">
@@ -21,7 +29,14 @@
                 <div class="ms-4">
                     <div class="text-extra-light-gray font-sm">@Model.ArticleNumber</div>
                     <h1 class="mt-2">@Model.Name</h1>
-                    <div class="mt-4">@Model.Description</div>
+                    @if (!string.IsNullOrEmpty(Model.Description))
+                    {
+                        <div class="mt-4">@Model.Description</div>
+                    }
+                    else
+                    {
+                        <div class="mt-4 description-placeholder">No description available</div>
+                    }
                     <div class="mt-auto pt-4">
                         <hr />
                         <div class="text-bold">Price: @((Model.Price.HasValue) ? $"{Model.Price.Value.ToString("0.00")} $" : "N/A")</div>
@@ -31,3 +46,4 @@
         </div>
     </div>
 </div>
+
