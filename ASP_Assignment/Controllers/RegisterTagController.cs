@@ -38,7 +38,7 @@ namespace ASP_Assignment.Controllers
                 var createdTag = await _tagService.CreateTagAsync(viewModel);
                 if (createdTag != null)
                 {
-                    ModelState.Clear(); // Clear the model state to reset the form
+                    ModelState.Clear();
                     return RedirectToAction("Index");
                 }
             }

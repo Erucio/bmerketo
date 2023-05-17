@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "tSiqk3d/oZL9kKvnCW5xOGwzYVB1lbl4q0otq3O/3Nk=",
+  "Hash": "ie2edk1jJCUX7yGM0sS0LHo7Gh0fJBzTxv6auemMEdU=",
   "Source": "ASP_Assignment",
   "BasePath": "_content/ASP_Assignment",
   "Mode": "Default",
@@ -1698,6 +1698,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\System.Func`1[System.Guid]_17.webp"
+    },
+    {
+      "Identity": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_20151207__1208starmerch1-3.webp",
+      "SourceId": "ASP_Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\",
+      "BasePath": "_content/ASP_Assignment",
+      "RelativePath": "images/products/System.Func`1[System.Guid]_20151207__1208starmerch1-3.webp",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\System.Func`1[System.Guid]_20151207__1208starmerch1-3.webp"
     },
     {
       "Identity": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_BORINGU 2.jpg",

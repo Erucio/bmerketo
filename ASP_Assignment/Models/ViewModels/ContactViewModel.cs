@@ -24,6 +24,7 @@ public class ContactViewModel
 
     [Display(Name = "Remember Me")]
     public bool RememberMe { get; set; }
+    public DateTime DateTime { get; set; }
 
 }
 

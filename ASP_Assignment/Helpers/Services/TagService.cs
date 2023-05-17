@@ -19,7 +19,8 @@ namespace ASP_Assignment.Helpers.Services
 
         #endregion
 
-        #region Get Tags
+
+        #region SelectListItem
 
         public async Task<List<SelectListItem>> GetTagsAsync()
         {
@@ -108,6 +109,8 @@ namespace ASP_Assignment.Helpers.Services
 
         #endregion
 
+
+        //unused Regions
         #region Update
         public async Task<Tag> UpdateTagAsync(Tag tag)
         {
@@ -119,16 +122,8 @@ namespace ASP_Assignment.Helpers.Services
                 return result;
             }
 
-
-
             return null!;
         }
-        #endregion
-
-        #region Set Tags
-
-
-
         #endregion
 
 
@@ -137,9 +132,6 @@ namespace ASP_Assignment.Helpers.Services
 
         public async Task<bool> DeleteTagAsync(int id)
         {
-
-
-
             var entity = await _tagRepo.GetAsync(x => x.Id == id);
             return await _tagRepo.DeleteAsync(entity);
         }
@@ -148,9 +140,6 @@ namespace ASP_Assignment.Helpers.Services
         //Delete by name
         public async Task<bool> DeleteTagAsync(string tagName)
         {
-
-
-
             var entity = await _tagRepo.GetAsync(x => x.TagName == tagName);
             return await _tagRepo.DeleteAsync(entity);
         }
@@ -160,9 +149,6 @@ namespace ASP_Assignment.Helpers.Services
         //whole tag
         public async Task<bool> DeleteTagAsync(Tag tag)
         {
-
-
-
             var entity = await _tagRepo.GetAsync(x => x.Id == tag.Id);
             return await _tagRepo.DeleteAsync(entity);
         }

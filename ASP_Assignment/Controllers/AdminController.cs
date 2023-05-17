@@ -1,11 +1,9 @@
 ﻿using ASP_Assignment.Helpers.Services;
-using ASP_Assignment.Models.Contexts;
 using ASP_Assignment.Models.Identity;
 using ASP_Assignment.Models.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Data;
 
 namespace ASP_Assignment.Controllers;
@@ -60,14 +58,15 @@ public class AdminController : Controller
     public async Task<IActionResult> Comments()
     {
         var comments = await _contactFormService.GetAllAsync();
-        var viewModelList = comments.Select(c => new ContactViewModel
+        var viewModelList = comments.Select(author => new ContactViewModel
         {
-            Name = c.Name,
-            Email = c.Email,
-            PhoneNumber = c.PhoneNumber,
-            CompanyName = c.Company,
-            CommentText = c.CommentText,
-            RememberMe = c.RememberMe
+            Name = author.Name,
+            Email = author.Email,
+            PhoneNumber = author.PhoneNumber,
+            CompanyName = author.Company,
+            CommentText = author.CommentText,
+            RememberMe = author.RememberMe,
+            DateTime = author.DateTime
         }).ToList();
 
         return View(viewModelList);

@@ -38,10 +38,11 @@
             </div>
             <div class="terms form-checkbox-group">
                 <label class="custom-checkbox">
-                    Remember me.
-                    <input type="checkbox" name="RememberMe">
+                    <label asp-for="RememberMe"></label>
+                    <input asp-for="RememberMe" />
                     <span class="checkmark"></span>
                 </label>
+                <span asp-validation-for="RememberMe" class="error"></span>
             </div>
             <button class="btn-theme">Submit</button>
         </form>

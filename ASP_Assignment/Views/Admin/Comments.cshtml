@@ -10,6 +10,7 @@
                         <div class="small">Company:</div>
                         <div class="small">Phone:</div>
                         <div class="small">Comment:</div>
+                        <div class="small">Date:</div>
                     </div>
                     <div class="col-sm-9">
                         <div class="small">@author.Name</div>
@@ -21,6 +22,7 @@
                             @(string.IsNullOrWhiteSpace(author.PhoneNumber) ? "N/A" : author.PhoneNumber)
                         </div>
                         <div class="small">@author.CommentText</div>
+                        <div class="small">@author.DateTime.ToShortDateString()</div>
                     </div>
                 </div>
             </div>
