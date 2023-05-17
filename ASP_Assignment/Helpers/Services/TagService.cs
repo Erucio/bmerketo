@@ -12,7 +12,7 @@ namespace ASP_Assignment.Helpers.Services
         #region constructor and privates
         private readonly TagRepository _tagRepo;
 
-        public TagService(TagRepository tagRepo)
+        public TagService(TagRepository tagRepo, ProductTagRepository productTagRepo)
         {
             _tagRepo = tagRepo;
         }
@@ -170,5 +170,11 @@ namespace ASP_Assignment.Helpers.Services
 
 
         #endregion
+
+
+
+
     }
+
+
 }

@@ -1,13 +1,37 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-namespace ASP_Assignment.Controllers;
+﻿using ASP_Assignment.Helpers.Services;
+using ASP_Assignment.Migrations;
+using Microsoft.AspNetCore.Mvc;
 
 public class ContactController : Controller
 {
+
+    #region constructors and privates
+    private readonly ContactFormService _contactFormService;
+
+
+    public ContactController(ContactFormService contactFormService)
+    {
+        _contactFormService = contactFormService;
+    }
+    #endregion
+
     public IActionResult Index()
     {
-        ViewData["Title"] = "Contact Us";
-
         return View();
+    }
+
+
+
+    [HttpPost]
+    public async Task<IActionResult> CommentSubmitted(ContactViewModel viewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            await _contactFormService.AddAsync(viewModel);
+
+            return View();
+        }
+
+        return View(viewModel);
     }
 }

@@ -1,0 +1,29 @@
+﻿<div class="container mt-5">
+    @foreach (var author in Model)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="small">Name:</div>
+                        <div class="small">Email:</div>
+                        <div class="small">Company:</div>
+                        <div class="small">Phone:</div>
+                        <div class="small">Comment:</div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="small">@author.Name</div>
+                        <div class="small">@author.Email</div>
+                        <div class="small">
+                            @(string.IsNullOrWhiteSpace(author.CompanyName) ? "N/A" : author.CompanyName)
+                        </div>
+                        <div class="small">
+                            @(string.IsNullOrWhiteSpace(author.PhoneNumber) ? "N/A" : author.PhoneNumber)
+                        </div>
+                        <div class="small">@author.CommentText</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

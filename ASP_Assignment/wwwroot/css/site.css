@@ -708,6 +708,10 @@ footer .container {
   margin-top: 40px;
   text-align: center;
 }
+.best-collection img {
+  height: 150px;
+  width: 150px;
+}
 
 .up-to-sell {
   background-color: #FAEFEF;

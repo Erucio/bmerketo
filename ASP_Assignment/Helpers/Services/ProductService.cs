@@ -1,7 +1,6 @@
 ﻿using ASP_Assignment.Helpers.Repositories;
 using ASP_Assignment.Models.Entities;
 using ASP_Assignment.Models.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Assignment.Helpers.Services
 {
@@ -9,15 +8,17 @@ namespace ASP_Assignment.Helpers.Services
     {
 
         #region Constructors and privates
+        private readonly TagRepository _tagRepo;
         private readonly ProductRepository _productRepo;
         private readonly ProductTagRepository _productTagRepo;
         private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ProductService(ProductRepository productRepo, IWebHostEnvironment webHostEnvironment, ProductTagRepository productTagRepo)
+        public ProductService(ProductRepository productRepo, IWebHostEnvironment webHostEnvironment, ProductTagRepository productTagRepo, TagRepository tagRepo)
         {
             _productRepo = productRepo;
             _webHostEnvironment = webHostEnvironment;
             _productTagRepo = productTagRepo;
+            _tagRepo = tagRepo;
         }
 
         #endregion
@@ -73,5 +74,12 @@ namespace ASP_Assignment.Helpers.Services
         {
             return await _productRepo.GetAsync(x => x.ArticleNumber == articleNumber);
         }
+
+        public IEnumerable<Product> GetProductsByTagId(int tagId)
+        {
+            var products = _productRepo.GetProductsByTagId(tagId);
+            return products.Select(p => (Product)p).ToList();
+        }
+
     }
 }

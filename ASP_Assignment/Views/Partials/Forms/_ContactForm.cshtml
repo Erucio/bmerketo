@@ -1,35 +1,45 @@
-﻿<section class="contact-form">
-    <div class="container">
-        <div class="title">Write something</div>
+﻿
+@model ContactViewModel
+@{
+    ViewData["Title"] = "Contact Us";
+}
 
-        <form novalidate>
+<section class="contact-form">
+    <div class="container">
+        <div class="title">@ViewData["Title"]</div>
+
+        <form method="post" action="/Contact/CommentSubmitted" novalidate>
+
+            <div asp-validation-summary="ModelOnly" class="form-group error"></div>
             <div class="name form-group">
-                <label for="name">Your Name*</label>
-                <input id="name" type="text" class="invalid" required>
-                <span class="error">Your name is required</span>
+                <label asp-for="Name">Your Name*</label>
+                <input asp-for="Name" required />
+                <span asp-validation-for="Name" class="error"></span>
             </div>
             <div class="email form-group">
-                <label for="email">Your Email*</label>
-                <input id="email" type="text" class="invalid">
-                <span class="error">Your email is required</span>
+                <label asp-for="Email">Your Email*</label>
+                <input asp-for="Email" required />
+                <span asp-validation-for="Email" class="error"></span>
             </div>
             <div class="phoneNumber form-group">
-                <label for="phone">Phone Number (optional)</label>
-                <input id="phone" type="text">
+                <label asp-for="PhoneNumber">Phone Number (optional)</label>
+                <input asp-for="PhoneNumber" />
+                <span asp-validation-for="PhoneNumber" class="error"></span>
             </div>
             <div class="companyName form-group">
-                <label for="company">Company (optional)</label>
-                <input id="company" type="text">
+                <label asp-for="CompanyName">Company (optional)</label>
+                <input asp-for="CompanyName" />
+                <span asp-validation-for="CompanyName" class="error"></span>
             </div>
             <div class="message form-group">
-                <label for="message">Message*</label>
-                <textarea id="message" class="invalid"></textarea>
-                <span class="error">Message is required</span>
+                <label asp-for="CommentText">Comment*</label>
+                <textarea asp-for="CommentText" required></textarea>
+                <span asp-validation-for="CommentText" class="error"></span>
             </div>
             <div class="terms form-checkbox-group">
                 <label class="custom-checkbox">
-                    Save my name, email in the this browser for the next time I comment.
-                    <input type="checkbox" checked="checked">
+                    Remember me.
+                    <input type="checkbox" name="RememberMe">
                     <span class="checkmark"></span>
                 </label>
             </div>

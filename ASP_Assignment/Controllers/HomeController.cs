@@ -1,26 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ASP_Assignment.Models.Contexts;
+﻿using ASP_Assignment.Helpers.Services;
+using Microsoft.AspNetCore.Mvc;
 
-namespace ASP_Assignment.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly ProductService _productService;
+
+    public HomeController(ProductService productService)
     {
-
-        private readonly ILogger<HomeController> _logger;
-        private readonly IdentityContext _context;
-
-        public HomeController(ILogger<HomeController> logger, IdentityContext context)
-        {
-            _logger = logger;
-            _context = context;
-        }
-
-        public IActionResult Index()
-        {
-
-            return View();
-        }
-
-
+        _productService = productService;
     }
+
+    public IActionResult Index()
+    {
+        var products = _productService.GetProductsByTagId(2);
+
+
+
+        return View(products);
+    }
+
 }

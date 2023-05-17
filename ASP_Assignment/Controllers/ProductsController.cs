@@ -2,14 +2,16 @@
 using ASP_Assignment.Helpers.Services;
 using ASP_Assignment.Models.Identity;
 using ASP_Assignment.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace ASP_Assignment.Controllers
 {
     public class ProductsController : Controller
     {
 
-        #region ProductsService Constructor
+        #region Privates Constructor
 
         private readonly TagService _tagService;
         private readonly ProductService _productService;
@@ -37,6 +39,7 @@ namespace ASP_Assignment.Controllers
 
 
         #region Create Product Page
+        [Authorize(Roles = "admin")]
         public async Task<IActionResult> Add()
         {
             ViewBag.Tags = await _tagService.GetTagsAsync();
