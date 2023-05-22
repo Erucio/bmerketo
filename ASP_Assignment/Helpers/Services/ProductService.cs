@@ -81,5 +81,24 @@ namespace ASP_Assignment.Helpers.Services
             return products.Select(p => (Product)p).ToList();
         }
 
+        public async Task<bool> DeleteAsync(Product product)
+        {
+            try
+            {
+                var productEntity = await _productRepo.GetAsync(x => x.ArticleNumber == product.ArticleNumber);
+
+                if (productEntity != null)
+                {
+                    bool isDeleted = await _productRepo.DeleteAsync(productEntity);
+                    return isDeleted;
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

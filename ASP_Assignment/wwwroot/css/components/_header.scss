@@ -8,6 +8,8 @@ header {
     background-color: $color-white;
     display: flex;
     padding: 0 20px;
+    text-decoration: none;
+
 
 
 
@@ -16,26 +18,31 @@ header {
         justify-content: space-between;
         align-items: center;
         grid-template-columns: 1fr 1fr;
-        grid-template-areas:    "logo toggle";
+        grid-template-areas: "logo toggle";
 
-        @include lg  {
+        @include lg {
             grid-template-columns: 4fr 4fr;
-            grid-template-areas:    "logo menulinks";
+            grid-template-areas: "logo menulinks";
         }
 
         @include xl {
             grid-template-columns: 4fr 4fr 1fr;
-            grid-template-areas:    "logo menulinks menuicons";
+            grid-template-areas: "logo menulinks menuicons";
+        }
+
+        .link {
+            text-decoration: none;
         }
     }
 
     .logo {
-        grid-area: logo; 
+        grid-area: logo;
         display: flex;
         align-items: center;
         font-size: 27px;
         font-weight: $font-weight-bold;
         color: $color-dark-1;
+
 
         img {
             margin-right: 5px;
@@ -66,8 +73,8 @@ header {
             background-color: transparent;
             color: $color-dark-2;
             display: flex;
-            justify-content: flex-end;   
-            align-items: center;  
+            justify-content: flex-end;
+            align-items: center;
         }
 
         @include xl {
@@ -78,11 +85,12 @@ header {
             font-family: $font-poppins;
             border: 1px solid $color-dark-1;
             color: $color-white;
-            display: flex; 
+            display: flex;
             justify-content: center;
             padding: 20px 0;
             text-decoration: none;
             font-weight: $font-weight-medium;
+
 
             &:hover {
                 background-color: $color-dark-1
@@ -95,7 +103,7 @@ header {
                 margin: 0 0 0 30px;
                 justify-content: right;
                 font-size: 16px;
-                
+
                 &:hover {
                     background-color: transparent;
                     color: $color-theme-1;
@@ -131,6 +139,7 @@ header {
             margin: 20px;
             font-size: 18px;
 
+
             &:hover {
                 color: $color-dark-4;
             }
@@ -146,8 +155,6 @@ header {
                 }
             }
         }
-
-
     }
 
     .toggle {

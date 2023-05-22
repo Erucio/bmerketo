@@ -365,6 +365,7 @@ header {
   background-color: #FFFFFF;
   display: flex;
   padding: 0 20px;
+  text-decoration: none;
 }
 header .container {
   display: flex;
@@ -384,6 +385,9 @@ header .container {
     grid-template-columns: 4fr 4fr 1fr;
     grid-template-areas: "logo menulinks menuicons";
   }
+}
+header .container .link {
+  text-decoration: none;
 }
 header .logo {
   grid-area: logo;

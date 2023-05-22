@@ -70,5 +70,15 @@ namespace ASP_Assignment.Helpers.Services
 
 
         #endregion
+        public async Task<CommentEntity> GetCommentByIdAsync(int Id)
+        {
+            return await _contactFormRepo.GetAsync(entity => entity.Id == Id);
+        }
+
+        public async Task<bool> DeleteAsync(CommentEntity commentEntity)
+        {
+            return await _contactFormRepo.DeleteAsync(commentEntity);
+        }
+
     }
 }

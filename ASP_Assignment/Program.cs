@@ -65,6 +65,10 @@ app.MapControllerRoute(
     name: "productDetails",
     pattern: "products/{articleNumber}",
     defaults: new { controller = "Products", action = "Details" });
+app.MapControllerRoute(
+    name: "updateUser",
+    pattern: "admin/{userId}",
+    defaults: new { controller = "Admin", action = "UpdateUser" });
 
 
 app.Run();

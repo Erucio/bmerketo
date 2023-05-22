@@ -12,10 +12,13 @@ namespace ASP_Assignment.Controllers;
 public class AdminController : Controller
 {
     private readonly ContactFormService _contactFormService;
+    private readonly UserManager<AppUser> _userManager;
 
-    public AdminController(ContactFormService contactFormService)
+
+    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager)
     {
         _contactFormService = contactFormService;
+        _userManager = userManager;
     }
 
     [Authorize(Roles = "admin")]
@@ -42,6 +45,7 @@ public class AdminController : Controller
 
                 var userViewModel = new UserViewModel
                 {
+                    Id = user.Id,
                     FirstName = user.FirstName ?? string.Empty,
                     LastName = user.LastName ?? string.Empty,
                     Email = user.Email ?? string.Empty,
@@ -54,12 +58,35 @@ public class AdminController : Controller
         return View(users);
     }
 
+
+
+
+    [Authorize(Roles = "admin")]
+    public async Task<IActionResult> UpdateUser(string userId, string newRole)
+    {
+        var user = await _userManager.FindByIdAsync(userId);
+        if (user == null)
+        {
+            return RedirectToAction("users");
+        }
+        var currentRoles = await _userManager.GetRolesAsync(user);
+
+        if (!string.IsNullOrEmpty(newRole) && !currentRoles.Contains(newRole))
+        {
+            await _userManager.RemoveFromRolesAsync(user, currentRoles);
+            await _userManager.AddToRoleAsync(user, newRole);
+        }
+
+        return RedirectToAction("users");
+    }
+
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> Comments()
     {
         var comments = await _contactFormService.GetAllAsync();
         var viewModelList = comments.Select(author => new ContactViewModel
         {
+            Id = author.Id,
             Name = author.Name,
             Email = author.Email,
             PhoneNumber = author.PhoneNumber,
@@ -70,5 +97,32 @@ public class AdminController : Controller
         }).ToList();
 
         return View(viewModelList);
+    }
+
+    [Authorize(Roles = "admin")]
+    [HttpPost]
+    public async Task<IActionResult> DeleteComment(int id)
+    {
+        var comment = await _contactFormService.GetCommentByIdAsync(id);
+
+        if (comment != null)
+        {
+            var isDeleted = await _contactFormService.DeleteAsync(comment);
+
+            if (isDeleted)
+            {
+                return RedirectToAction("comments");
+            }
+        }
+
+        return RedirectToAction("Error");
+    }
+
+
+
+    [Authorize(Roles = "admin")]
+    public IActionResult RegisterUser()
+    {
+        return View();
     }
 }

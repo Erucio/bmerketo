@@ -12,6 +12,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        //Write the ID of the Tag you want to Get
         var products = _productService.GetProductsByTagId(2);
 
 

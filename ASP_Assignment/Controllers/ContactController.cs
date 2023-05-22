@@ -1,5 +1,7 @@
 ﻿using ASP_Assignment.Helpers.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 public class ContactController : Controller
 {
@@ -33,4 +35,7 @@ public class ContactController : Controller
 
         return View(viewModel);
     }
+
+
+
 }

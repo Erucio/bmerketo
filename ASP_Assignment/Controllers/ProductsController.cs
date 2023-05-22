@@ -93,6 +93,25 @@ namespace ASP_Assignment.Controllers
 
             return View(viewModel);
         }
+
+        [Authorize(Roles = "admin")]
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(string articleNumber)
+        {
+            var productEntity = await _productService.GetByArticleNumberAsync(articleNumber);
+
+            if (productEntity != null)
+            {
+                var isDeleted = await _productService.DeleteAsync(productEntity);
+
+                if (isDeleted)
+                {
+                    return RedirectToAction("index");
+                }
+            }
+
+            return RedirectToAction("Error");
+        }
     }
 }
 

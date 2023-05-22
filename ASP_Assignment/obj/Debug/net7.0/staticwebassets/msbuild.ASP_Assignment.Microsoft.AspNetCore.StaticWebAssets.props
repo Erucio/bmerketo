@@ -704,6 +704,22 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\System.Func`1[System.Guid]_gadgetconcept.jpg))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg))">
+      <SourceType>Package</SourceType>
+      <SourceId>ASP_Assignment</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/ASP_Assignment</BasePath>
+      <RelativePath>images/products/System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\staticwebassets\images\products\System.Func`1[System.Guid]_image_1547cff8-90b1-430d-af30-5b8f912c790d_1000x1000.webp))">
       <SourceType>Package</SourceType>
       <SourceId>ASP_Assignment</SourceId>

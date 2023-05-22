@@ -2,7 +2,10 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
+
 <div class="container">
+    <p>@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
+
      <h2>@ViewData["Title"]</h2>
 
     <div class="menu">
@@ -55,4 +58,5 @@
     .menu a:hover{
         background-color: darkgray;
     }
+
 </style>

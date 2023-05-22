@@ -2,6 +2,8 @@
 
 public class ContactViewModel
 {
+    public int Id { get; set; }
+
     [Display(Name = "Your Name*")]
     [Required(ErrorMessage = "You must enter your name...")]
     public string Name { get; set; } = null!;

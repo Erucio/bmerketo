@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ie2edk1jJCUX7yGM0sS0LHo7Gh0fJBzTxv6auemMEdU=",
+  "Hash": "hicv41/Pai6InoLBH5bUWEjJ9dmei7to1f24h6o/xTc=",
   "Source": "ASP_Assignment",
   "BasePath": "_content/ASP_Assignment",
   "Mode": "Default",
@@ -1783,6 +1783,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\products\\System.Func`1[System.Guid]_gadgetconcept.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg",
+      "SourceId": "ASP_Assignment",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\",
+      "BasePath": "_content/ASP_Assignment",
+      "RelativePath": "images/products/System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\products\\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg"
     },
     {
       "Identity": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_image_1547cff8-90b1-430d-af30-5b8f912c790d_1000x1000.webp",

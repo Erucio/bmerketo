@@ -1,5 +1,6 @@
 ﻿using ASP_Assignment.Models.Contexts;
 using ASP_Assignment.Models.Entities;
+using ASP_Assignment.Models.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace ASP_Assignment.Helpers.Repositories
@@ -11,6 +12,7 @@ namespace ASP_Assignment.Helpers.Repositories
         {
             _identityContext = identityContext;
         }
+
         public IEnumerable<ProductEntity> GetProductsByTagId(int tagId)
         {
             return _identityContext.ProductTags

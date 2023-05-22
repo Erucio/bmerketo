@@ -169,6 +169,10 @@
       "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_BORINGU.jpg"
     },
     {
+      "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg",
+      "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_Generic_Star_Wars_Emperor_Throne_1000_0001.jpg"
+    },
+    {
       "Id": "C:\\Users\\erick\\OneDrive\\Skrivbord\\ASP_Assignment\\ASP_Assignment\\wwwroot\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg",
       "PackagePath": "staticwebassets\\images\\products\\System.Func`1[System.Guid]_Spellbreaker.jpg"
     },
