@@ -8,7 +8,7 @@ namespace ASP_Assignment.Models.ViewModels
         [Required(ErrorMessage = "You have to write a Tag name")]
         public string TagName { get; set; } = null!;
 
-
+        public bool TagCreated { get; set; }
 
         public static implicit operator TagEntity(TagRegisterViewModel viewModel)
         {

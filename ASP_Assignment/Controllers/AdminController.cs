@@ -11,6 +11,7 @@ namespace ASP_Assignment.Controllers;
 
 public class AdminController : Controller
 {
+    #region privates and constructors
     private readonly ContactFormService _contactFormService;
     private readonly UserManager<AppUser> _userManager;
 
@@ -20,14 +21,16 @@ public class AdminController : Controller
         _contactFormService = contactFormService;
         _userManager = userManager;
     }
+    #endregion
 
+    //Dashboard View
     [Authorize(Roles = "admin")]
     public IActionResult Index()
     {
         return View();
     }
 
-
+    //User List view with Role Manager
     [Authorize(Roles = "admin")]
     public IActionResult Users()
     {
@@ -60,7 +63,7 @@ public class AdminController : Controller
 
 
 
-
+    //Role Manager (No View)
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> UpdateUser(string userId, string newRole)
     {
@@ -80,6 +83,7 @@ public class AdminController : Controller
         return RedirectToAction("users");
     }
 
+    //Comments List View
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> Comments()
     {
@@ -99,6 +103,8 @@ public class AdminController : Controller
         return View(viewModelList);
     }
 
+
+    //Delete Comment (No View)
     [Authorize(Roles = "admin")]
     [HttpPost]
     public async Task<IActionResult> DeleteComment(int id)
@@ -119,7 +125,7 @@ public class AdminController : Controller
     }
 
 
-
+    //Register User View (Admin Side)
     [Authorize(Roles = "admin")]
     public IActionResult RegisterUser()
     {

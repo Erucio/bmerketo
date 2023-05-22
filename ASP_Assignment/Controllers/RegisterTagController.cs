@@ -21,7 +21,8 @@ namespace ASP_Assignment.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            var viewModel = new TagRegisterViewModel();
+            return View(viewModel);
         }
 
         [HttpPost]
@@ -39,12 +40,11 @@ namespace ASP_Assignment.Controllers
                 if (createdTag != null)
                 {
                     ModelState.Clear();
-                    return RedirectToAction("Index");
+                    viewModel.TagCreated = true;
                 }
             }
 
             return View(viewModel);
         }
-
     }
 }

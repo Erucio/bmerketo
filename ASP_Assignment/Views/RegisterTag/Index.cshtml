@@ -2,12 +2,25 @@
 @{
     ViewData["Title"] = "Register a new Tag";
 }
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
 <section class="tag-form">
     <div class="container">
         <div class="title">@ViewData["Title"]</div>
 
-        <form method="post">
+        @if (Model.TagCreated)
+        {
+            <div class="alert alert-success" role="alert">A new Tag was created</div>
+            <script>
+                $(document).ready(function () {
+                    $('#tagForm').trigger('reset');
+                    $('#TagName').val('');
+                });
+            </script>
+        }
+
+        <form method="post" id="tagForm">
 
             <div asp-validation-summary="ModelOnly" class="form-group error"></div>
 
