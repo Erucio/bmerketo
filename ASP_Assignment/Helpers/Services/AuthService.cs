@@ -24,6 +24,7 @@ namespace ASP_Assignment.Helpers.Services
         public async Task<bool> UserAlreadyExistsAsync(Expression<Func<AppUser, bool>> expression)
         {
             return await _userManager.Users.AnyAsync(expression);
+
         }
 
         public async Task<bool> RegisterUserAsync(UserRegisterViewModel viewModel)

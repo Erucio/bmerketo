@@ -32,10 +32,10 @@ namespace ASP_Assignment.Models.ViewModels
         [Display(Name = "Company Name")]
         public string? CompanyName { get; set; }
 
-        [Display(Name = "E-mail")]
+        [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
-        [Required(ErrorMessage = "You must enter your E-mail address...")]
-        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "You must enter a valid E-mail address")]
+        [Required(ErrorMessage = "You must enter an Email address")]
+        [RegularExpression(@"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", ErrorMessage = "You need to fill in a valid email")]
         public string Email { get; set; } = null!;
 
         [Display(Name = "Password")]
@@ -46,6 +46,7 @@ namespace ASP_Assignment.Models.ViewModels
 
         [Display(Name = "Confirm Password")]
         [DataType(DataType.Password)]
+        [Compare(nameof(Password), ErrorMessage = "The Passwords don´t match... Type them again")]
         [Required(ErrorMessage = "You must confirm your password...")]
         public string ConfirmPassword { get; set; } = null!;
 
@@ -56,7 +57,6 @@ namespace ASP_Assignment.Models.ViewModels
         [Display(Name = "I have read and agreed to the terms and conditions")]
         [Required(ErrorMessage = "You must accept the terms and conditions to continue...")]
         public bool TermsAndConditions { get; set; } = false;
-
 
 
         public static implicit operator AppUser(UserRegisterViewModel viewModel)

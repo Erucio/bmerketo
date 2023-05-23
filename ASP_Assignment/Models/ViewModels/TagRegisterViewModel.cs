@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP_Assignment.Models.ViewModels
 {
@@ -9,6 +10,8 @@ namespace ASP_Assignment.Models.ViewModels
         public string TagName { get; set; } = null!;
 
         public bool TagCreated { get; set; }
+
+        public List<string> Tags { get; set; } = new List<string>();
 
         public static implicit operator TagEntity(TagRegisterViewModel viewModel)
         {

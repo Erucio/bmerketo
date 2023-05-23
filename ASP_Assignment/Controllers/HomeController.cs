@@ -10,12 +10,10 @@ public class HomeController : Controller
         _productService = productService;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        //Write the ID of the Tag you want to Get
-        var products = _productService.GetProductsByTagId(2);
-
-
+        var tagName = "Featured";
+        var products = await _productService.GetProductsByTagNameAsync(tagName);
 
         return View(products);
     }

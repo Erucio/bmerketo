@@ -26,13 +26,15 @@ namespace ASP_Assignment.Controllers
             if (ModelState.IsValid)
             {
                 if (await _auth.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))
-                    ModelState.AddModelError("", "An account with that Email already exists");
-
+                    ModelState.AddModelError("", "A user with the same email already exists");
 
                 if (await _auth.RegisterUserAsync(viewModel))
-                    return RedirectToAction("index","login");
+                    return RedirectToAction("index", "login");
+
             }
             return View(viewModel);
         }
+
+
     }
 }

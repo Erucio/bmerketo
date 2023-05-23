@@ -1125,6 +1125,12 @@ footer .container {
   grid-area: terms;
   margin: 10px 0;
 }
+.register-form form .terms .error {
+  color: red;
+  font-size: 14px;
+  margin-left: 20px;
+  margin-top: 4px;
+}
 .register-form form .message {
   grid-area: message;
 }

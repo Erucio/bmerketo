@@ -19,9 +19,11 @@ namespace ASP_Assignment.Controllers
 
         [Authorize(Roles = "admin")]
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             var viewModel = new TagRegisterViewModel();
+            var tags = await _tagService.GetAllTagsAsync();
+            viewModel.Tags = tags.Select(tag => tag.TagName).ToList();
             return View(viewModel);
         }
 
@@ -30,21 +32,40 @@ namespace ASP_Assignment.Controllers
         {
             if (ModelState.IsValid)
             {
-                var existingTag = await _tagService.GetTagAsync(viewModel.TagName);
-                if (existingTag != null)
-                {
-                    return Conflict(new { tag = existingTag, error = "This Tag Already Exists" });
-                }
+                var tag = await _tagService.GetTagAsync(viewModel.TagName);
+                if (tag != null)
+                    return Conflict(new { tag, error = "A tag with that name already exists..." });
 
-                var createdTag = await _tagService.CreateTagAsync(viewModel);
-                if (createdTag != null)
-                {
-                    ModelState.Clear();
-                    viewModel.TagCreated = true;
-                }
+                tag = await _tagService.CreateTagAsync(viewModel);
+                if (tag != null)
+
+                return RedirectToAction("Index");
             }
 
-            return View(viewModel);
+            return View();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string tagName)
+        {
+            var tagToDelete = await _tagService.GetTagAsync(tagName);
+            if (tagToDelete != null)
+            {
+                var result = await _tagService.DeleteTagAsync(tagToDelete);
+                if (result)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    return RedirectToAction("Error");
+                }
+            }
+            else
+            {
+                return RedirectToAction("NotFound");
+            }
         }
     }
 }

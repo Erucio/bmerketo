@@ -81,6 +81,14 @@
         .terms {
             grid-area: terms;
             margin: 10px 0;
+        
+
+            .error {
+                color: red;
+                font-size: 14px;
+                margin-left: 20px;
+                margin-top: 4px;
+            }
         }
 
         .message {

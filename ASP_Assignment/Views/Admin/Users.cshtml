@@ -4,7 +4,11 @@
     ViewData["title"] = "Users";
 }
 
-<div class="container mt-5">
+<div class="container mt-5 mb-4">
+    <div class="text-center mb-4">
+        <a href="/admin/registeruser" class="btn btn-primary">Add New User</a>
+    </div>
+
     @foreach (var user in Model)
     {
         <div class="card mb-3">
@@ -38,7 +42,4 @@
             </div>
         </div>
     }
-    <div class="text-center mb-4">
-        <a href="/admin/registeruser" class="btn btn-primary">Add New User</a>
-    </div>
 </div>

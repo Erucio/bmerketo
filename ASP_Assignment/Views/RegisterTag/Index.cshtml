@@ -2,23 +2,11 @@
 @{
     ViewData["Title"] = "Register a new Tag";
 }
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 
 <section class="tag-form">
     <div class="container">
         <div class="title">@ViewData["Title"]</div>
-
-        @if (Model.TagCreated)
-        {
-            <div class="alert alert-success" role="alert">A new Tag was created</div>
-            <script>
-                $(document).ready(function () {
-                    $('#tagForm').trigger('reset');
-                    $('#TagName').val('');
-                });
-            </script>
-        }
 
         <form method="post" id="tagForm">
 
@@ -32,5 +20,32 @@
 
             <button class="btn-theme">CREATE</button>
         </form>
+        @if (Model.Tags.Count > 0)
+        {
+            <div class="mt-4 mb-3">
+                <h4 class="fw-bold">Existing Tags:</h4>
+            </div>
+            <div class="row">
+                @foreach (var tagName in Model.Tags)
+                {
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body d-flex justify-content-between">
+                                <h5 class="card-title">@tagName</h5>
+                                <form method="post" asp-action="Delete" asp-route-tagName="@tagName">
+                                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+        else
+        {
+            <div class="mt-4 mb-3">
+                <h4 class="fw-bold">No Tags Exist Yet</h4>
+            </div>
+        }
     </div>
 </section>

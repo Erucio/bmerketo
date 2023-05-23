@@ -12,14 +12,17 @@ namespace ASP_Assignment.Controllers;
 public class AdminController : Controller
 {
     #region privates and constructors
+
+    private readonly AuthService _auth;
     private readonly ContactFormService _contactFormService;
     private readonly UserManager<AppUser> _userManager;
 
 
-    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager)
+    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager, AuthService auth)
     {
         _contactFormService = contactFormService;
         _userManager = userManager;
+        _auth = auth;
     }
     #endregion
 
@@ -61,6 +64,21 @@ public class AdminController : Controller
         return View(users);
     }
 
+    //Register User Admin-Side (No View)
+    [Authorize(Roles = "admin")]
+    [HttpPost]
+    public async Task<IActionResult> RegisterUser(UserRegisterViewModel viewModel)
+    {
+        if (ModelState.IsValid)
+        {
+            if (await _auth.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))
+                ModelState.AddModelError("", "An account with that Email already exists");
+
+            if (await _auth.RegisterUserAsync(viewModel))
+                return RedirectToAction("Users", "Admin");
+        }
+        return View(viewModel);
+    }
 
 
     //Role Manager (No View)
