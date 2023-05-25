@@ -12,12 +12,12 @@
             <div asp-validation-summary="ModelOnly" class="form-group error"></div>
             <div class="name form-group">
                 <label asp-for="Name">Your Name*</label>
-                <input asp-for="Name" required />
+                <input asp-for="Name" onkeyup="validateText(event)" required  />
                 <span asp-validation-for="Name" class="error"></span>
             </div>
             <div class="email form-group">
                 <label asp-for="Email">Your Email*</label>
-                <input asp-for="Email" required />
+                <input asp-for="Email" onkeyup="validateEmail(event)" required  />
                 <span asp-validation-for="Email" class="error"></span>
             </div>
             <div class="phoneNumber form-group">
@@ -27,12 +27,12 @@
             </div>
             <div class="companyName form-group">
                 <label asp-for="CompanyName">Company (optional)</label>
-                <input asp-for="CompanyName" />
+                <input asp-for="CompanyName" onkeyup="validateText(event)" />
                 <span asp-validation-for="CompanyName" class="error"></span>
             </div>
             <div class="message form-group">
                 <label asp-for="CommentText">Comment*</label>
-                <textarea asp-for="CommentText" required></textarea>
+                <textarea asp-for="CommentText" required onkeyup="validateComment(event)"></textarea>
                 <span asp-validation-for="CommentText" class="error"></span>
             </div>
             <div class="terms form-checkbox-group">

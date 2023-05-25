@@ -16,21 +16,27 @@ public class AdminController : Controller
     private readonly AuthService _auth;
     private readonly ContactFormService _contactFormService;
     private readonly UserManager<AppUser> _userManager;
+    private readonly TagService _tagService;
 
 
-    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager, AuthService auth)
+    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager, AuthService auth, TagService tagService)
     {
         _contactFormService = contactFormService;
         _userManager = userManager;
         _auth = auth;
+        _tagService = tagService;
     }
     #endregion
 
     //Dashboard View
     [Authorize(Roles = "admin")]
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var viewModel = new TagRegisterViewModel();
+        var tags = await _tagService.GetAllTagsAsync();
+        viewModel.Tags = tags.Select(tag => tag.TagName).ToList();
+
+        return View(viewModel);
     }
 
     //User List view with Role Manager

@@ -6,8 +6,10 @@ using System.Linq.Expressions;
 
 namespace ASP_Assignment.Helpers.Services
 {
+    
     public class AuthService
     {
+        #region privates and constructors
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly AddressService _addressService;
@@ -20,7 +22,9 @@ namespace ASP_Assignment.Helpers.Services
             _signInManager = signInManager;
             _roleManager = roleManager;
         }
+        #endregion
 
+        #region Validation and Registration
         public async Task<bool> UserAlreadyExistsAsync(Expression<Func<AppUser, bool>> expression)
         {
             return await _userManager.Users.AnyAsync(expression);
@@ -59,7 +63,8 @@ namespace ASP_Assignment.Helpers.Services
 
             return false;
         }
-
+        #endregion
+        #region Login
         public async Task<bool> LoginAsync(UserLoginViewModel viewModel)
         {
             var appUser = await _userManager.Users.FirstOrDefaultAsync(x => x.Email == viewModel.Email);
@@ -71,5 +76,6 @@ namespace ASP_Assignment.Helpers.Services
 
             return false;
         }
+        #endregion
     }
 }

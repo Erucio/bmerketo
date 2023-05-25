@@ -17,7 +17,7 @@ namespace ASP_Assignment.Models.Entities
 
 
 
-        public ICollection<ProductTagEntity> ProductTags { get; set; } = new HashSet<ProductTagEntity>();
+        public ICollection<ProductTagEntity> Tags { get; set; } = new HashSet<ProductTagEntity>();
 
 
 

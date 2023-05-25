@@ -82,13 +82,9 @@ namespace ASP_Assignment.Controllers
                 return NotFound();
             }
 
-            var viewModel = new ProductDetailViewModel
+            var viewModel = new ProductViewModel
             {
-                ArticleNumber = product.ArticleNumber,
-                Name = product.Name,
-                Price = product.Price,
-                Description = product.Description,
-                ImageUrl = product.ImageUrl
+                Product = product
             };
 
             return View(viewModel);

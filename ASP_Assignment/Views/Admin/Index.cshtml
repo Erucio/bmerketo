@@ -1,4 +1,5 @@
-﻿@{
+﻿@model TagRegisterViewModel
+@{
     ViewData["Title"] = "Admin Dashboard";
 }
 
@@ -6,8 +7,11 @@
 <div class="container">
     <p>@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
 
-     <h2>@ViewData["Title"]</h2>
-
+    <h2>@ViewData["Title"]</h2>
+    @if (Model.Tags.Count == 0)
+    {
+        <h5>Welcome! To get started create som new tags in the Tag Manager!</h5>
+    }
     <div class="menu">
         <ul>
             <li>

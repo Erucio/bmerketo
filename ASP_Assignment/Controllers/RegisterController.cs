@@ -3,6 +3,7 @@ using ASP_Assignment.Models.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace ASP_Assignment.Controllers
 {
     public class RegisterController : Controller
@@ -17,12 +18,18 @@ namespace ASP_Assignment.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> Index(UserRegisterViewModel viewModel)
         {
+            if (!viewModel.TermsAndConditions)
+            {
+                ModelState.AddModelError("TermsAndConditions", "You must agree with the terms and conditions");
+            }
+
             if (ModelState.IsValid)
             {
                 if (await _auth.UserAlreadyExistsAsync(x => x.Email == viewModel.Email))

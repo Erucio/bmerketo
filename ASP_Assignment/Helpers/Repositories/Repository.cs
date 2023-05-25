@@ -6,12 +6,14 @@ namespace ASP_Assignment.Helpers.Repositories
 {
     public abstract class Repository<TEntity> where TEntity : class
     {
+        #region privates and constructors
         private readonly IdentityContext _context;
 
         protected Repository(IdentityContext context)
         {
             _context = context;
         }
+        #endregion
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {

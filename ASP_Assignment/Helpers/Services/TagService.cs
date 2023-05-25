@@ -56,10 +56,6 @@ namespace ASP_Assignment.Helpers.Services
         }
 
         #endregion
-
-
-
-
         #region Create
         public async Task<Tag> CreateTagAsync(string tagName)
         {
@@ -75,9 +71,6 @@ namespace ASP_Assignment.Helpers.Services
             return result;
         }
         #endregion
-
-
-
         #region Get
         public async Task<Tag> GetTagAsync(string tagName)
         {
@@ -86,10 +79,6 @@ namespace ASP_Assignment.Helpers.Services
 
         }
         #endregion
-
-
-
-
         #region Get All
         public async Task<IEnumerable<Tag>> GetAllTagsAsync()
         {
@@ -102,31 +91,11 @@ namespace ASP_Assignment.Helpers.Services
             return list;
         }
         #endregion
-
         #region Get By TagId
 
 
 
         #endregion
-
-
-        //unused Regions
-        #region Update
-        public async Task<Tag> UpdateTagAsync(Tag tag)
-        {
-            var entity = await _tagRepo.GetAsync(x => x.Id == tag.Id);
-            if (entity != null)
-            {
-                entity.TagName = tag.TagName;
-                var result = await _tagRepo.UpdateAsync(entity);
-                return result;
-            }
-
-            return null!;
-        }
-        #endregion
-
-
         #region Delete
         //Olika kriterier för att kunna delete
 
@@ -155,6 +124,22 @@ namespace ASP_Assignment.Helpers.Services
 
 
 
+        #endregion
+
+        //unused Regions
+        #region Update
+        public async Task<Tag> UpdateTagAsync(Tag tag)
+        {
+            var entity = await _tagRepo.GetAsync(x => x.Id == tag.Id);
+            if (entity != null)
+            {
+                entity.TagName = tag.TagName;
+                var result = await _tagRepo.UpdateAsync(entity);
+                return result;
+            }
+
+            return null!;
+        }
         #endregion
 
 

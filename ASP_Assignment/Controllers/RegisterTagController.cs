@@ -34,15 +34,20 @@ namespace ASP_Assignment.Controllers
             {
                 var tag = await _tagService.GetTagAsync(viewModel.TagName);
                 if (tag != null)
-                    return Conflict(new { tag, error = "A tag with that name already exists..." });
-
-                tag = await _tagService.CreateTagAsync(viewModel);
-                if (tag != null)
-
-                return RedirectToAction("Index");
+                {
+                    ModelState.AddModelError(string.Empty, "A tag with that name already exists...");
+                }
+                else
+                {
+                    tag = await _tagService.CreateTagAsync(viewModel);
+                    if (tag != null)
+                        return RedirectToAction("Index");
+                }
             }
+            var tags = await _tagService.GetAllTagsAsync();
+            viewModel.Tags = tags.Select(t => t.TagName).ToList();
 
-            return View();
+            return View(viewModel);
         }
 
 

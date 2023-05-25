@@ -6,7 +6,7 @@
     <div class="container">
         <h1 class="collection-title">Best Collection</h1>
         <div class="collection-grid">
-            @foreach (var product in Model)
+            @foreach (var product in Model.Take(4))
             {
                 <a href="/products/@product.ArticleNumber" class="collection-item">
                     @if (string.IsNullOrEmpty(product.ImageUrl))

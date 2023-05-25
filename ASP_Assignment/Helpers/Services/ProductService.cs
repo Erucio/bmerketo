@@ -26,6 +26,8 @@ namespace ASP_Assignment.Helpers.Services
 
         #endregion
 
+
+        #region Create and Upload
         public async Task<Product> CreateAsync(ProductEntity entity)
         {
             var _entity = await _productRepo.GetAsync(x => x.ArticleNumber == entity.ArticleNumber);
@@ -37,7 +39,6 @@ namespace ASP_Assignment.Helpers.Services
             }
             return null!;
         }
-
         public async Task<bool> UploadImageAsync(Product product, IFormFile image)
         {
             try
@@ -48,7 +49,8 @@ namespace ASP_Assignment.Helpers.Services
             }
             catch { return false; }
         }
-
+        #endregion
+        #region Add Tag To Product
         public async Task AddProductTagsAsync(ProductEntity entity, string[] tags)
         {
             foreach (var tag in tags)
@@ -61,8 +63,9 @@ namespace ASP_Assignment.Helpers.Services
                 });
             }
         }
-
-
+        #endregion
+        #region Get  Methods
+        //Get All Products
         public async Task<IEnumerable<Product>> GetAllAsync()
         {
             var items = await _productRepo.GetAllAsync();
@@ -72,7 +75,7 @@ namespace ASP_Assignment.Helpers.Services
             return list;
 
         }
-
+        //Get By Article Number
         public async Task<Product> GetByArticleNumberAsync(string articleNumber)
         {
             return await _productRepo.GetAsync(x => x.ArticleNumber == articleNumber);
@@ -98,8 +101,8 @@ namespace ASP_Assignment.Helpers.Services
             var products = _productRepo.GetProductsByTagId(tag.Id);
             return products.Select(p => (Product)p).ToList();
         }
-
-
+        #endregion
+        #region Delete
         public async Task<bool> DeleteAsync(Product product)
         {
             try
@@ -119,5 +122,6 @@ namespace ASP_Assignment.Helpers.Services
                 return false;
             }
         }
+        #endregion
     }
 }

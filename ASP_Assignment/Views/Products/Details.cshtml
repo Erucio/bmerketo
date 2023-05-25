@@ -1,13 +1,20 @@
-﻿@model ProductDetailViewModel
+﻿@model ProductViewModel
+@inject ProductRepository _productRepository
 
 @{
-    ViewData["title"] = Model.ArticleNumber;
+    var product = await _productRepository.GetAsync(Model.Product.ArticleNumber);
 }
 
-
 <style>
-    .description-placeholder {
+    .description {
         min-height: 200px;
+        max-width: 800px;
+    }
+
+    .tag-icon {
+        display: inline-block;
+        margin-left: 5px;
+        font-size: 14px;
     }
 </style>
 
@@ -16,33 +23,47 @@
         <div class="card-body">
             <div class="d-flex">
                 <div>
-                    @if (string.IsNullOrEmpty(Model.ImageUrl))
+                    @if (string.IsNullOrEmpty(Model.Product.ImageUrl))
                     {
                         <img src="~/images/placeholders/placeholder.png" alt="Placeholder Image" height="400" width="400" />
                     }
                     else
                     {
-                        <img src="~/images/products/@Model.ImageUrl" alt="@Model.Name" height="400" width="400" />
+                        <img src="~/images/products/@Model.Product.ImageUrl" alt="@Model.Product.Name" height="400" width="400" />
                     }
                 </div>
                 <div class="ms-4">
-                    <div class="text-extra-light-gray font-sm">@Model.ArticleNumber</div>
-                    <h1 class="mt-2">@Model.Name</h1>
-                    @if (!string.IsNullOrEmpty(Model.Description))
+                    <div class="text-extra-light-gray font-sm">@Model.Product.ArticleNumber</div>
+                    <h1 class="mt-2">@Model.Product.Name</h1>
+                    @if (!string.IsNullOrEmpty(Model.Product.Description))
                     {
-                        <div class="mt-4">@Model.Description</div>
+                        <div class="mt-4 description">@Model.Product.Description</div>
                     }
                     else
                     {
-                        <div class="mt-4 description-placeholder">No description available</div>
+                        <div class="mt-4 description">No description available</div>
                     }
+                    <div>
+                        @if (product != null && product.Tags != null)
+                        {
+                            foreach (var tag in product.Tags)
+                            {
+                                if (tag.Tag != null)
+                                {
+                                    <span class="tag-icon">
+                                        <i class="fa fa-tag"></i>@tag.Tag.TagName
+                                    </span>
+                                }
+                            }
+                        }
+                    </div>
+
                     <div class="mt-auto pt-4">
                         <hr />
-                        <div class="text-bold">Price: @((Model.Price.HasValue) ? $"{Model.Price.Value.ToString("0.00")} $" : "N/A")</div>
+                        <div class="text-bold">Price: @((Model.Product.Price.HasValue) ? $"{Model.Product.Price.Value.ToString("0.00")} $" : "N/A")</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

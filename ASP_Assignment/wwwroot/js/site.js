@@ -32,6 +32,68 @@ function toggleMenu(attribute) {
 }
 toggleMenu('[data-option="toggle"]')
 
+const validateText = (event) => {
+
+    if (event.target.value.length >= 2)
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+    else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "invalid lenght"
+}
+
+
+
+
+const validateEmail = (event) => {
+    const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+
+
+    if (regEx.test(event.target.value))
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+    else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid Email"
+}
+
+
+
+
+const validatePassword = (event) => {
+    const regEx = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/
+
+
+
+    if (regEx.test(event.target.value))
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+    else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Invalid Password"
+
+
+
+}
+const validateComment = (event) => {
+
+
+
+
+    if (event.target.value.length >= 8)
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = ""
+    else
+        document.querySelector(`[data-valmsg-for="${event.target.id}"]`).innerHTML = "Please type at least a full sentence."
+
+}
+const validateConfirmPassword = (event) => {
+    const passwordInput = document.getElementById("Password");
+    const confirmPasswordInput = event.target;
+
+
+
+    if (passwordInput.value === confirmPasswordInput.value)
+        document.querySelector(`[data-valmsg-for="${confirmPasswordInput.id}"]`).innerHTML = "";
+    else
+        document.querySelector(`[data-valmsg-for="${confirmPasswordInput.id}"]`).innerHTML = "Passwords do not match";
+}
+
+
 
 
 

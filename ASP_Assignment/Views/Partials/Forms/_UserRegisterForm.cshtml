@@ -13,12 +13,12 @@
 
             <div class="firstname form-group">
                 <label asp-for="FirstName"></label>
-                <input asp-for="FirstName" />
+                <input asp-for="FirstName" onkeyup="validateText(event)" />
                 <span asp-validation-for="FirstName" class="error"></span>
             </div>
             <div class="lastname form-group">
                 <label asp-for="LastName"></label>
-                <input asp-for="LastName" />
+                <input asp-for="LastName" onkeyup="validateText(event)" />
                 <span asp-validation-for="LastName" class="error"></span>
             </div>
             <div class="streetname form-group">
@@ -49,19 +49,18 @@
 
             <div class="email form-group">
                 <label asp-for="Email"></label>
-                <input asp-for="Email" />
+                <input asp-for="Email" onkeyup="validateEmail(event)"  />
                 <span asp-validation-for="Email" class="error"></span>
             </div>
 
             <div class="password form-group">
                 <label asp-for="Password"></label>
-                <input asp-for="Password" />
+                <input asp-for="Password" onkeyup="validatePassword(event)" />
                 <span asp-validation-for="Password" class="error"></span>
             </div>
             <div class="confirmpassword form-group">
                 <label asp-for="ConfirmPassword"></label>
-                <input asp-for="ConfirmPassword" />
-                <span asp-validation-for="ConfirmPassword" class="error"></span>
+                <input id="ConfirmPassword" asp-for="ConfirmPassword" onkeyup="validateConfirmPassword(event)" />                <span asp-validation-for="ConfirmPassword" class="error"></span>
             </div>
             <div class="profileimage form-group">
                 <label asp-for="ImageFile"></label>
@@ -75,7 +74,7 @@
                     <span class="checkmark"></span>
                     <label asp-for="TermsAndConditions" class="terms-label"></label>
                 </label>
-                <span asp-validation-for="TermsAndConditions" class="error"></span>
+                <span asp-validation-for="TermsAndConditions" class="error"></span> <!-- Updated attribute -->
             </div>
             <button class="btn-theme">REGISTER</button>
         </form>
