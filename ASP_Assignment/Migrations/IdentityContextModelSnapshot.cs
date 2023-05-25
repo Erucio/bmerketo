@@ -364,12 +364,29 @@ namespace ASP_Assignment.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Tags");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            TagName = "Featured"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            TagName = "New"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            TagName = "Popular"
+                        });
                 });
 
             modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductTagEntity", b =>
                 {
                     b.HasOne("ASP_Assignment.Models.Entities.ProductEntity", "Product")
-                        .WithMany("ProductTags")
+                        .WithMany("Tags")
                         .HasForeignKey("ArticleNumber")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -462,7 +479,7 @@ namespace ASP_Assignment.Migrations
 
             modelBuilder.Entity("ASP_Assignment.Models.Entities.ProductEntity", b =>
                 {
-                    b.Navigation("ProductTags");
+                    b.Navigation("Tags");
                 });
 
             modelBuilder.Entity("ASP_Assignment.Models.Identity.AppUser", b =>
