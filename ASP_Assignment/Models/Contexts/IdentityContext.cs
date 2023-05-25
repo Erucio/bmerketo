@@ -20,6 +20,17 @@ namespace ASP_Assignment.Models.Contexts
         public DbSet<AddressEntity> AspNewAddresses { get; set; }
         public DbSet<UserAddressEntity> AspNetUsersAddresses { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
 
+
+            builder.Entity<TagEntity>().HasData(
+                new TagEntity { Id = 1, TagName = "Featured" },
+                new TagEntity { Id = 2, TagName = "New" },
+                new TagEntity { Id = 3, TagName = "Popular" }
+
+             );
+        }
     }
 }
