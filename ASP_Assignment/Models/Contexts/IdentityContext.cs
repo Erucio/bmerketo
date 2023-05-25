@@ -1,6 +1,5 @@
 ﻿using ASP_Assignment.Models.Entities;
 using ASP_Assignment.Models.Identity;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +19,7 @@ namespace ASP_Assignment.Models.Contexts
         public DbSet<ProductEntity> Products { get; set; }
         public DbSet<AddressEntity> AspNewAddresses { get; set; }
         public DbSet<UserAddressEntity> AspNetUsersAddresses { get; set; }
+
 
     }
 }

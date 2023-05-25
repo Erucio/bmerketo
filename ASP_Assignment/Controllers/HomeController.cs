@@ -1,4 +1,5 @@
 ﻿using ASP_Assignment.Helpers.Services;
+using ASP_Assignment.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 public class HomeController : Controller
@@ -12,9 +13,11 @@ public class HomeController : Controller
 
     public async Task<IActionResult> Index()
     {
-        var tagName = "Featured";
-        var products = await _productService.GetProductsByTagNameAsync(tagName);
+        var products = new ProductViewModel();
 
+        products.FeaturedProducts = await _productService.GetProductsByTagNameAsync("Featured");
+        products.NewProducts = await _productService.GetProductsByTagNameAsync("New");
+        products.Products = await _productService.GetAllAsync();
         return View(products);
     }
 

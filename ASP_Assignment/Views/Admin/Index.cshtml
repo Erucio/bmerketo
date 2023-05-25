@@ -1,4 +1,4 @@
-﻿@model TagRegisterViewModel
+﻿@model ProductViewModel
 @{
     ViewData["Title"] = "Admin Dashboard";
 }
@@ -8,11 +8,10 @@
     <p>@User.FindFirst("DisplayName")?.Value / Admin Dashboard</p>
 
     <h2>@ViewData["Title"]</h2>
-    @if (Model.Tags.Count == 0)
+    @if (!Model.Products.Any())
     {
-        <h5>Welcome! To get started create som new tags in the Tag Manager!</h5>
-    }
-    <div class="menu">
+        <h5>Welcome! To get started, try creating some Products!</h5>
+    }    <div class="menu">
         <ul>
             <li>
                 <a asp-action="users" asp-controller="admin">Manage Users</a>

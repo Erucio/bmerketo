@@ -13,18 +13,18 @@ public class AdminController : Controller
 {
     #region privates and constructors
 
+    private readonly ProductService _productService;
     private readonly AuthService _auth;
     private readonly ContactFormService _contactFormService;
     private readonly UserManager<AppUser> _userManager;
-    private readonly TagService _tagService;
 
 
-    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager, AuthService auth, TagService tagService)
+    public AdminController(ContactFormService contactFormService, UserManager<AppUser> userManager, AuthService auth, ProductService productService)
     {
         _contactFormService = contactFormService;
         _userManager = userManager;
         _auth = auth;
-        _tagService = tagService;
+        _productService = productService;
     }
     #endregion
 
@@ -32,9 +32,8 @@ public class AdminController : Controller
     [Authorize(Roles = "admin")]
     public async Task<IActionResult> Index()
     {
-        var viewModel = new TagRegisterViewModel();
-        var tags = await _tagService.GetAllTagsAsync();
-        viewModel.Tags = tags.Select(tag => tag.TagName).ToList();
+        var viewModel = new ProductViewModel();
+        viewModel.Products = await _productService.GetAllAsync();
 
         return View(viewModel);
     }
